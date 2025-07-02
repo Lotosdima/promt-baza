@@ -113,25 +113,6 @@
             display: none;
         }
 
-        /* Стили для структуры урока */
-        .two-columns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .structure-preview {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-
-        .structure-preview ol {
-            margin: 0;
-            padding-left: 20px;
-        }
-
         /* Стили для чекбоксов */
         .checkbox-group {
             display: flex;
@@ -225,10 +206,6 @@
                 max-width: 100%;
             }
 
-            .two-columns {
-                grid-template-columns: 1fr;
-            }
-
             .header {
                 padding: 20px 0;
             }
@@ -261,98 +238,6 @@
             
             .prompt-output {
                 font-size: 14px;
-            }
-        }
-        
-        /* Специальные стили для планшетов */
-        @media (min-width: 481px) and (max-width: 1024px) {
-            .grid {
-                gap: 15px;
-                margin-bottom: 25px;
-            }
-            
-            .section {
-                padding: 18px;
-            }
-            
-            select[multiple] {
-                min-height: 140px;
-            }
-            
-            .structure-preview {
-                font-size: 15px;
-            }
-            
-            #copyButton {
-                max-width: 350px;
-                padding: 12px 25px;
-                font-size: 16px;
-            }
-            
-            .header-content h1 {
-                font-size: 28px;
-            }
-            
-            .header-content p {
-                font-size: 16px;
-                max-width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            /* Улучшение тактильного взаимодействия на планшетах */
-            select, input, button, .checkbox-group label {
-                cursor: pointer;
-            }
-            
-            /* Увеличение области нажатия для чекбоксов */
-            .checkbox-group {
-                padding: 5px 0;
-            }
-            
-            .checkbox-group label {
-                padding: 5px 0;
-            }
-        }
-        
-        /* Дополнительные стили для очень маленьких экранов */
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .section {
-                padding: 12px;
-                margin-bottom: 15px;
-            }
-            
-            h1 {
-                font-size: 22px;
-            }
-            
-            h2 {
-                font-size: 18px;
-            }
-            
-            .header-content p {
-                font-size: 14px;
-            }
-            
-            .form-group {
-                margin-bottom: 15px;
-            }
-            
-            label {
-                font-size: 15px;
-            }
-            
-            .hint {
-                font-size: 11px;
-            }
-            
-            #copyButton {
-                width: 100%;
-                max-width: none;
             }
         }
 
@@ -419,108 +304,245 @@
     <div class="container">
         <a href="index.html" class="back-link" style="display: inline-block; margin-bottom: 20px; color: #365ddf; text-decoration: none;">← Вернуться на главную</a>
         <h1>Мотивационный крючок для урока</h1>
+        
         <form id="motivPromptForm">
         <div class="grid">
-                <div class="section full-width">
+            <!-- Блок 1: Основная информация -->
+            <div class="section">
+                <h2>Основная информация</h2>
+                
                 <div class="form-group">
-                        <label for="lessonTopic">Тема урока</label>
-                        <input type="text" id="lessonTopic" placeholder="Например: Умножение дробей" required>
-                    </div>
-                <div class="form-group">
-                        <label for="ageClass">Возраст/класс учеников</label>
-                        <select id="ageClass" disabled>
-                            <option value="">Сначала выберите предмет</option>
-                            <optgroup label="Дошкольное образование">
-                                <option value="3-4 года" data-grade="0">3-4 года</option>
-                                <option value="4-5 лет" data-grade="0">4-5 лет</option>
-                                <option value="5-6 лет" data-grade="0">5-6 лет</option>
-                                <option value="6-7 лет" data-grade="0">6-7 лет</option>
-                            </optgroup>
-                            <optgroup label="Начальная школа">
-                                <option value="1 класс" data-grade="1">1 класс</option>
-                                <option value="2 класс" data-grade="2">2 класс</option>
-                                <option value="3 класс" data-grade="3">3 класс</option>
-                                <option value="4 класс" data-grade="4">4 класс</option>
-                            </optgroup>
-                            <optgroup label="Средняя школа">
-                                <option value="5 класс" data-grade="5">5 класс</option>
-                                <option value="6 класс" data-grade="6">6 класс</option>
-                                <option value="7 класс" data-grade="7">7 класс</option>
-                                <option value="8 класс" data-grade="8">8 класс</option>
-                                <option value="9 класс" data-grade="9">9 класс</option>
-                            </optgroup>
-                            <optgroup label="Старшая школа">
-                                <option value="10 класс" data-grade="10">10 класс</option>
-                                <option value="11 класс" data-grade="11">11 класс</option>
-                            </optgroup>
-                            <optgroup label="Среднее профессиональное образование">
-                                <option value="студенты колледжа 1 курс" data-grade="12">1 курс колледжа</option>
-                                <option value="студенты колледжа 2 курс" data-grade="13">2 курс колледжа</option>
-                                <option value="студенты колледжа 3 курс" data-grade="14">3 курс колледжа</option>
-                                <option value="студенты колледжа 4 курс" data-grade="15">4 курс колледжа</option>
-                            </optgroup>
-                            <optgroup label="Высшее образование">
-                                <option value="студенты бакалавриата 1 курс" data-grade="12">1 курс бакалавриата</option>
-                                <option value="студенты бакалавриата 2 курс" data-grade="13">2 курс бакалавриата</option>
-                                <option value="студенты бакалавриата 3 курс" data-grade="14">3 курс бакалавриата</option>
-                                <option value="студенты бакалавриата 4 курс" data-grade="15">4 курс бакалавриата</option>
-                                <option value="студенты магистратуры" data-grade="16">Магистратура</option>
-                                <option value="студенты аспирантуры" data-grade="17">Аспирантура</option>
-                            </optgroup>
-                            <option value="Другое" data-grade="-1">Другое (указать)</option>
-                        </select>
-                        <div id="customAgeClassContainer" style="display: none;" class="form-group">
-                            <input type="text" id="customAgeClass" placeholder="Укажите возраст/класс">
-                        </div>
-                        <div id="classAlert" class="alert">Выбранный класс не соответствует предмету. Пожалуйста, выберите другой класс.</div>
-                    </div>
-                <div class="form-group">
-                        <label for="studentInterests">Интересы ученика</label>
-                        <input type="text" id="studentInterests" placeholder="Например: футбол, комиксы, игры" required>
-                    </div>
-                <div class="form-group">
-                        <label for="perceptionType">Тип восприятия</label>
-                        <select id="perceptionType" required>
-                            <option value="">Выберите тип</option>
-                            <option value="визуал">Визуал</option>
-                            <option value="аудиал">Аудиал</option>
-                            <option value="кинестетик">Кинестетик</option>
-                            <option value="смешанный">Смешанный</option>
+                    <label for="expertType">Выберите предмет</label>
+                    <select id="expertType">
+                        <option value="">Выберите предмет</option>
+                        
+                        <optgroup label="Начальная школа">
+                            <option value="Учитель начальных классов" data-grades="0,1,2,3,4">Начальные классы (общее)</option>
+                            <option value="Учитель обучения грамоте" data-grades="0,1">Обучение грамоте</option>
+                            <option value="Учитель русского языка в начальной школе" data-grades="1,2,3,4">Русский язык</option>
+                            <option value="Учитель литературного чтения" data-grades="1,2,3,4">Литературное чтение</option>
+                            <option value="Учитель математики в начальной школе" data-grades="1,2,3,4">Математика</option>
+                            <option value="Учитель окружающего мира" data-grades="1,2,3,4">Окружающий мир</option>
+                            <option value="Учитель технологии в начальной школе" data-grades="1,2,3,4">Технология</option>
+                            <option value="Учитель ИЗО в начальной школе" data-grades="1,2,3,4">ИЗО</option>
+                            <option value="Учитель музыки в начальной школе" data-grades="1,2,3,4">Музыка</option>
+                        </optgroup>
+                        
+                        <optgroup label="Основные предметы">
+                            <option value="Учитель русского языка" data-grades="5,6,7,8,9,10,11">Русский язык</option>
+                            <option value="Учитель литературы" data-grades="5,6,7,8,9,10,11">Литература</option>
+                            <option value="Учитель математики" data-grades="5,6">Математика</option>
+                            <option value="Учитель алгебры" data-grades="7,8,9,10,11">Алгебра</option>
+                            <option value="Учитель геометрии" data-grades="7,8,9,10,11">Геометрия</option>
+                            <option value="Учитель физики" data-grades="7,8,9,10,11">Физика</option>
+                            <option value="Учитель химии" data-grades="8,9,10,11">Химия</option>
+                            <option value="Учитель биологии" data-grades="5,6,7,8,9,10,11">Биология</option>
+                            <option value="Учитель географии" data-grades="5,6,7,8,9,10,11">География</option>
+                            <option value="Учитель истории" data-grades="5,6,7,8,9,10,11">История</option>
+                            <option value="Учитель обществознания" data-grades="6,7,8,9,10,11">Обществознания</option>
+                            <option value="Учитель информатики" data-grades="7,8,9,10,11">Информатика</option>
+                        </optgroup>
+                        
+                        <optgroup label="Иностранные языки">
+                            <option value="Учитель английского языка" data-grades="2,3,4,5,6,7,8,9,10,11">Английский язык</option>
+                            <option value="Учитель немецкого языка" data-grades="5,6,7,8,9,10,11">Немецкий язык</option>
+                            <option value="Учитель французского языка" data-grades="5,6,7,8,9,10,11">Французский язык</option>
+                            <option value="Учитель испанского языка" data-grades="5,6,7,8,9,10,11">Испанский язык</option>
+                            <option value="Учитель китайского языка" data-grades="5,6,7,8,9,10,11">Китайский язык</option>
+                        </optgroup>
+                        
+                        <optgroup label="Физическая культура и ОБЖ">
+                            <option value="Учитель физической культуры" data-grades="1,2,3,4,5,6,7,8,9,10,11">Физическая культура</option>
+                            <option value="Учитель ОБЖ" data-grades="8,9,10,11">ОБЖ</option>
+                        </optgroup>
+                        
+                        <optgroup label="Искусство и технологии">
+                            <option value="Учитель ИЗО" data-grades="5,6,7,8">ИЗО</option>
+                            <option value="Учитель МХК" data-grades="10,11">МХК</option>
+                            <option value="Учитель музыки" data-grades="5,6,7,8">Музыка</option>
+                            <option value="Учитель технологии" data-grades="5,6,7,8,9,10,11">Технология</option>
+                            <option value="Учитель черчения" data-grades="8,9">Черчение</option>
+                        </optgroup>
+                        
+                        <optgroup label="Региональные компоненты">
+                            <option value="Учитель родного языка" data-grades="1,2,3,4,5,6,7,8,9,10,11">Родной язык</option>
+                            <option value="Учитель родной литературы" data-grades="1,2,3,4,5,6,7,8,9,10,11">Родная литература</option>
+                            <option value="Учитель краеведения" data-grades="5,6,7,8,9">Краеведение</option>
+                            <option value="Учитель национальной культуры" data-grades="1,2,3,4,5,6,7,8,9,10,11">Национальная культура</option>
+                        </optgroup>
+                        
+                        <optgroup label="Вариативные курсы">
+                            <option value="Учитель экономики" data-grades="10,11">Экономика</option>
+                            <option value="Учитель права" data-grades="10,11">Право</option>
+                            <option value="Учитель экологии" data-grades="10,11">Экология</option>
+                            <option value="Учитель астрономии" data-grades="10,11">Астрономия</option>
+                            <option value="Учитель психологии" data-grades="10,11">Психология</option>
+                        </optgroup>
+                        
+                        <optgroup label="Высшее образование">
+                            <option value="Преподаватель высшей математики" data-grades="12,13,14,15,16,17">Высшая математика</option>
+                            <option value="Преподаватель статистики" data-grades="12,13,14,15,16,17">Статистика</option>
+                            <option value="Преподаватель программирования" data-grades="12,13,14,15,16,17">Программирование</option>
+                            <option value="Преподаватель философии" data-grades="12,13,14,15,16,17">Философия</option>
+                            <option value="Преподаватель социологии" data-grades="12,13,14,15,16,17">Социология</option>
+                            <option value="Преподаватель политологии" data-grades="12,13,14,15,16,17">Политология</option>
+                            <option value="Преподаватель культурологии" data-grades="12,13,14,15,16,17">Культурология</option>
+                        </optgroup>
+                        
+                        <option value="Другое" data-grades="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17">Другое (указать)</option>
                     </select>
+                    <div id="customExpertContainer" style="display: none;" class="form-group">
+                        <input type="text" id="customExpertType" placeholder="Укажите тип эксперта">
                     </div>
+                    <div id="subjectAlert" class="alert">Пожалуйста, выберите предмет перед выбором класса</div>
+                </div>
+                
                 <div class="form-group">
-                        <label for="lessonDuration">Длительность (минут)</label>
-                        <select id="lessonDuration" required>
-                            <option value="">Выберите</option>
+                    <label for="ageClass">Возраст/класс учеников</label>
+                    <select id="ageClass" disabled>
+                        <option value="">Сначала выберите предмет</option>
+                        <optgroup label="Дошкольное образование">
+                            <option value="3-4 года" data-grade="0">3-4 года</option>
+                            <option value="4-5 лет" data-grade="0">4-5 лет</option>
+                            <option value="5-6 лет" data-grade="0">5-6 лет</option>
+                            <option value="6-7 лет" data-grade="0">6-7 лет</option>
+                        </optgroup>
+                        <optgroup label="Начальная школа">
+                            <option value="1 класс" data-grade="1">1 класс</option>
+                            <option value="2 класс" data-grade="2">2 класс</option>
+                            <option value="3 класс" data-grade="3">3 класс</option>
+                            <option value="4 класс" data-grade="4">4 класс</option>
+                        </optgroup>
+                        <optgroup label="Средняя школа">
+                            <option value="5 класс" data-grade="5">5 класс</option>
+                            <option value="6 класс" data-grade="6">6 класс</option>
+                            <option value="7 класс" data-grade="7">7 класс</option>
+                            <option value="8 класс" data-grade="8">8 класс</option>
+                            <option value="9 класс" data-grade="9">9 класс</option>
+                        </optgroup>
+                        <optgroup label="Старшая школа">
+                            <option value="10 класс" data-grade="10">10 класс</option>
+                            <option value="11 класс" data-grade="11">11 класс</option>
+                        </optgroup>
+                        <optgroup label="Среднее профессиональное образование">
+                            <option value="студенты колледжа 1 курс" data-grade="12">1 курс колледжа</option>
+                            <option value="студенты колледжа 2 курс" data-grade="13">2 курс колледжа</option>
+                            <option value="студенты колледжа 3 курс" data-grade="14">3 курс колледжа</option>
+                            <option value="студенты колледжа 4 курс" data-grade="15">4 курс колледжа</option>
+                        </optgroup>
+                        <optgroup label="Высшее образование">
+                            <option value="студенты бакалавриата 1 курс" data-grade="12">1 курс бакалавриата</option>
+                            <option value="студенты бакалавриата 2 курс" data-grade="13">2 курс бакалавриата</option>
+                            <option value="студенты бакалавриата 3 курс" data-grade="14">3 курс бакалавриата</option>
+                            <option value="студенты бакалавриата 4 курс" data-grade="15">4 курс бакалавриата</option>
+                            <option value="студенты магистратуры" data-grade="16">Магистратура</option>
+                            <option value="студенты аспирантуры" data-grade="17">Аспирантура</option>
+                        </optgroup>
+                        <option value="Другое" data-grade="-1">Другое (указать)</option>
+                    </select>
+                    <div id="customAgeClassContainer" style="display: none;" class="form-group">
+                        <input type="text" id="customAgeClass" placeholder="Укажите возраст/класс">
+                    </div>
+                    <div id="classAlert" class="alert">Выбранный класс не соответствует предмету. Пожалуйста, выберите другой класс.</div>
+                </div>
+                    
+                    <div class="form-group">
+                        <label for="topic">Тема урока</label>
+                        <div id="topicSelectContainer">
+                            <select id="topicSelect" class="topic-select">
+                                <option value="">Выберите предмет и класс для загрузки тем</option>
+                            </select>
+                            <p class="topics-hint">Выберите тему из списка или введите свою</p>
+                            <div id="loadingTopics" class="loading-indicator">Загрузка тем...</div>
+                            <div id="topicsError" class="error-message" style="display: none; color: #d9534f; margin: 5px 0;"></div>
+                        </div>
+                    <input type="text" id="topic" placeholder="Например: Умножение дробей" required>
+                    </div>
+                
+                <div class="form-group">
+                    <label for="knowledgeLevel">Уровень знаний</label>
+                    <select id="knowledgeLevel">
+                        <option value="">Выберите вариант</option>
+                        <option value="начальный">Начальный</option>
+                        <option value="базовый">Базовый</option>
+                        <option value="средний">Средний</option>
+                        <option value="выше среднего">Выше среднего</option>
+                        <option value="продвинутый">Продвинутый</option>
+                        <option value="углубленный">Углубленный</option>
+                        <option value="олимпиадный">Олимпиадный</option>
+                        <option value="разный (смешанная группа)">Разный (смешанная группа)</option>
+                        <option value="Другое">Другое (указать)</option>
+                    </select>
+                    <div id="customKnowledgeLevelContainer" style="display: none;" class="form-group">
+                        <input type="text" id="customKnowledgeLevel" placeholder="Укажите уровень знаний">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 2: Параметры мотивации -->
+            <div class="section">
+                <h2>Параметры мотивации</h2>
+                
+                <div class="form-group">
+                    <label for="studentInterests">Интересы ученика</label>
+                    <input type="text" id="studentInterests" placeholder="Например: футбол, комиксы, игры" required>
+                    <p class="hint">Опишите интересы и увлечения ученика через запятую</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="perceptionType">Тип восприятия</label>
+                    <select id="perceptionType" required>
+                        <option value="">Выберите тип</option>
+                        <option value="визуал">Визуал</option>
+                        <option value="аудиал">Аудиал</option>
+                        <option value="кинестетик">Кинестетик</option>
+                        <option value="смешанный">Смешанный</option>
+                    </select>
+                    <p class="hint">Ведущий тип восприятия информации учеником</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lessonDuration">Длительность (минут)</label>
+                    <select id="lessonDuration" required>
+                        <option value="">Выберите</option>
                                 <option value="30">30</option>
                                 <option value="40">40</option>
-                            <option value="45">45</option>
+                        <option value="45">45</option>
                                 <option value="60">60</option>
                                 <option value="90">90</option>
                             </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="knowledgeLevel">Уровень знаний</label>
-                        <select id="knowledgeLevel">
-                            <option value="">Выберите вариант</option>
-                            <option value="начальный">Начальный</option>
-                            <option value="базовый">Базовый</option>
-                            <option value="средний">Средний</option>
-                            <option value="выше среднего">Выше среднего</option>
-                            <option value="продвинутый">Продвинутый</option>
-                            <option value="углубленный">Углубленный</option>
-                            <option value="олимпиадный">Олимпиадный</option>
-                            <option value="разный (смешанная группа)">Разный (смешанная группа)</option>
-                            <option value="Другое">Другое (указать)</option>
-                        </select>
-                        <div id="customKnowledgeLevelContainer" style="display: none;" class="form-group">
-                            <input type="text" id="customKnowledgeLevel" placeholder="Укажите уровень знаний">
+                    <p class="hint">Продолжительность урока в минутах</p>
+                        </div>
+                        
+                        <div class="form-group">
+                    <label for="motivationLevel">Уровень мотивации</label>
+                    <select id="motivationLevel">
+                        <option value="">Выберите вариант</option>
+                        <option value="высокая">Высокая мотивация</option>
+                        <option value="средняя">Средняя мотивация</option>
+                        <option value="низкая">Низкая мотивация</option>
+                        <option value="неопределенная">Неопределенная</option>
+                            </select>
+                    <p class="hint">Текущий уровень мотивации к обучению</p>
+                        </div>
+                        
+                        <div class="form-group">
+                    <label for="lessonFormat">Формат урока</label>
+                    <select id="lessonFormat">
+                        <option value="оффлайн">Оффлайн</option>
+                        <option value="онлайн">Онлайн</option>
+                        <option value="смешанный формат">Смешанный формат</option>
+                            </select>
                         </div>
                     </div>
-                    <button type="submit" id="generateBtn" style="width:100%;margin-top:10px;background:#365ddf;color:white;border:none;padding:12px 0;border-radius:4px;font-size:16px;cursor:pointer;">Сгенерировать промпт</button>
-            </div>
+                </div>
+                
+        <div class="section full-width">
+            <button type="submit" id="generateBtn" style="width:100%;margin-top:10px;background:#365ddf;color:white;border:none;padding:12px 0;border-radius:4px;font-size:16px;cursor:pointer;">Сгенерировать промпт</button>
+            <div id="motivFormError" class="alert" style="margin-top: 10px;">Пожалуйста, заполните все обязательные поля</div>
         </div>
         </form>
+        
         <div class="result">
             <h2>Готовый промпт:</h2>
             <div id="generatedPrompt" class="prompt-output">Заполните форму, чтобы сгенерировать промпт</div>
@@ -533,42 +555,116 @@
         <p><a href="https://promo.teachermentor.ru/neiro_teaher21" style="color: #365ddf; text-decoration: none;">promo.teachermentor.ru/neiro_teaher21</a></p>
     </div>
 
+    <!-- Подключение скриптов -->
+    <script src="topics-integration.js"></script>
+    <script src="topic-handlers.js"></script>
+    
     <script>
-        // Генерация промпта по шаблону
-        document.getElementById('motivPromptForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const topic = document.getElementById('lessonTopic').value.trim();
-            const age = document.getElementById('ageClass').value.trim();
-            const subject = document.getElementById('expertType').value.trim();
-            const interests = document.getElementById('studentInterests').value.trim();
-            const perception = document.getElementById('perceptionType').value;
-            const duration = document.getElementById('lessonDuration').value;
-            const level = document.getElementById('knowledgeLevel').value;
+        // === Логика генерации промпта для мотивационного крючка ===
+        function updateMotivPrompt() {
+            console.log('=== Начало генерации промпта мотивационного крючка ===');
             
-            if (!topic || !age || !subject || !interests || !perception || !duration || !level) {
-                document.getElementById('generatedPrompt').textContent = 'Пожалуйста, заполните все поля.';
-                return;
-            }
-            
-            const prompt = `Ты - эксперт по мотивации учеников и геймификации обучения.\n\nСоздай мотивационный крючок для урока по теме "${topic}" для ученика ${age} лет по предмету ${subject}.\n\nДополнительная информация:\n- Интересы ученика: ${interests}\n- Тип восприятия: ${perception}\n- Длительность: ${duration}\n- Уровень: ${level}\n\nЗАДАЧА: Создать 3 варианта мотивационных крючков, которые:\n1. Зацепят внимание в первые 30 секунд\n2. Свяжут тему с интересами ученика\n3. Покажут практическую пользу\n4. Создадут интригу или вызов\n\nДля каждого варианта предоставь:\n- Название крючка\n- Сценарий введения (что говорить/показывать)\n- Связь с темой урока\n- Практическое применение\n- Элемент игры/соревнования (если подходит)`;
-            document.getElementById('generatedPrompt').textContent = prompt;
-        });
+            try {
+                // Получаем ссылки на элементы формы
+                const elements = {
+                    expertType: document.getElementById('expertType'),
+                    customExpertType: document.getElementById('customExpertType'),
+                    ageClass: document.getElementById('ageClass'),
+                    customAgeClass: document.getElementById('customAgeClass'),
+                    topic: document.getElementById('topic'),
+                    knowledgeLevel: document.getElementById('knowledgeLevel'),
+                    customKnowledgeLevel: document.getElementById('customKnowledgeLevel'),
+                    studentInterests: document.getElementById('studentInterests'),
+                    perceptionType: document.getElementById('perceptionType'),
+                    lessonDuration: document.getElementById('lessonDuration'),
+                    motivationLevel: document.getElementById('motivationLevel'),
+                    lessonFormat: document.getElementById('lessonFormat'),
+                    generatedPrompt: document.getElementById('generatedPrompt')
+                };
 
-        // Копирование результата
-        document.getElementById('copyButton').addEventListener('click', async function() {
-                    const promptOutput = document.getElementById('generatedPrompt');
-                    if (promptOutput) {
-                        try {
-                            await navigator.clipboard.writeText(promptOutput.textContent);
-                    this.textContent = 'Скопировано!';
-                            setTimeout(() => {
-                        this.textContent = 'Скопировать промпт';
-                            }, 2000);
-                        } catch (error) {
-                    alert('Не удалось скопировать текст. Попробуйте выделить и скопировать вручную.');
-                        }
+                // Проверяем наличие всех необходимых элементов
+                for (const [name, element] of Object.entries(elements)) {
+                    if (!element) {
+                        throw new Error(`Элемент ${name} не найден в DOM`);
                     }
-                });
+                }
+                
+                // Определение предметного эксперта
+                let expert = elements.expertType.value;
+                if (expert === 'Другое' && elements.customExpertType?.value.trim()) {
+                    expert = elements.customExpertType.value;
+                }
+                
+                // Определение возраста/класса
+                let ageClassValue = elements.ageClass.value;
+                if (ageClassValue === 'Другое' && elements.customAgeClass?.value.trim()) {
+                    ageClassValue = elements.customAgeClass.value;
+                }
+                
+                // Определение темы
+                const topicValue = elements.topic.value.trim();
+                
+                // Определение уровня знаний
+                let knowledgeLevelValue = elements.knowledgeLevel.value;
+                if (knowledgeLevelValue === 'Другое' && elements.customKnowledgeLevel?.value.trim()) {
+                    knowledgeLevelValue = elements.customKnowledgeLevel.value;
+                }
+                
+                // Получение остальных параметров
+                const interests = elements.studentInterests.value.trim();
+                const perception = elements.perceptionType.value;
+                const duration = elements.lessonDuration.value;
+                const motivation = elements.motivationLevel.value || 'неопределенная';
+                const format = elements.lessonFormat.value || 'оффлайн';
+                
+                // Проверка обязательных полей
+                if (!expert || !ageClassValue || !topicValue || !knowledgeLevelValue || !interests || !perception || !duration) {
+                    showError('Пожалуйста, заполните все обязательные поля');
+                    return;
+                }
+                
+                // Формирование финального промпта
+                const finalPrompt = `Ты - эксперт по мотивации учеников и геймификации обучения.
+
+Создай мотивационный крючок для ${format} урока по теме "${topicValue}" для ученика ${ageClassValue} по предмету ${expert}.
+
+Дополнительная информация о ученике:
+- Интересы: ${interests}
+- Тип восприятия: ${perception}
+- Уровень знаний: ${knowledgeLevelValue}
+- Мотивация к обучению: ${motivation}
+- Длительность урока: ${duration} минут
+
+ЗАДАЧА: Создать 3 варианта мотивационных крючков, которые:
+1. Зацепят внимание в первые 30 секунд урока
+2. Свяжут тему с интересами ученика
+3. Покажут практическую пользу изучаемого материала
+4. Создадут интригу или вызов
+5. Учтут тип восприятия информации
+
+Для каждого варианта предоставь:
+- Название крючка (яркое и запоминающееся)
+- Сценарий введения (что конкретно говорить/показывать)
+- Связь с темой урока (как плавно перейти к материалу)
+- Практическое применение (зачем это нужно в жизни)
+- Элемент игры/соревнования (если подходит для типа восприятия)
+- Способ поддержания интереса на протяжении всего урока`;
+                
+                console.log('=== Финальный промпт ===');
+                console.log(finalPrompt);
+                
+                // Обновляем текст промпта
+                elements.generatedPrompt.textContent = finalPrompt;
+                console.log('Промпт успешно обновлен в DOM');
+                
+                // Скрываем сообщение об ошибке, если оно было
+                hideError();
+                
+            } catch (error) {
+                console.error('Ошибка при генерации промпта:', error);
+                showError(`Ошибка при генерации промпта: ${error.message}`);
+            }
+        }
 
         // === Логика фильтрации классов и кастомных полей ===
         function updateAvailableClasses() {
@@ -576,23 +672,29 @@
             const ageClass = document.getElementById('ageClass');
             const subjectAlert = document.getElementById('subjectAlert');
             const classAlert = document.getElementById('classAlert');
+            
             if (!expertType.value) {
                 ageClass.disabled = true;
                 ageClass.options[0].text = 'Сначала выберите предмет';
                 if (subjectAlert) subjectAlert.style.display = 'block';
                 return;
             }
+            
             const selectedOption = expertType.options[expertType.selectedIndex];
             const grades = selectedOption.dataset.grades;
+            
             if (!grades) {
                 ageClass.disabled = true;
                 return;
             }
+            
             ageClass.disabled = false;
             ageClass.options[0].text = 'Выберите класс';
             if (subjectAlert) subjectAlert.style.display = 'none';
+            
             const availableGrades = grades.split(',').map(g => g.trim());
             let hasAvailableOptions = false;
+            
             Array.from(ageClass.options).forEach(option => {
                 const grade = option.dataset.grade;
                 if (grade) {
@@ -602,9 +704,11 @@
                     if (isAvailable) hasAvailableOptions = true;
                 }
             });
+            
             if (!hasAvailableOptions) {
                 ageClass.disabled = true;
             }
+            
             // Сбросить выбор, если выбранный класс не подходит
             if (ageClass.value && ageClass.value !== 'Другое') {
                 const selectedGrade = ageClass.options[ageClass.selectedIndex]?.dataset.grade;
@@ -616,84 +720,155 @@
                 }
             }
         }
+
         function toggleCustomField(selectElement, customContainer) {
             if (selectElement && customContainer) {
                 customContainer.style.display = selectElement.value === 'Другое' ? 'block' : 'none';
             }
         }
+
+        // Функции для обработки ошибок
+        function showError(message) {
+            const errorElement = document.getElementById('motivFormError');
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+            console.error(message);
+        }
+
+        function hideError() {
+            const errorElement = document.getElementById('motivFormError');
+            if (errorElement) {
+                errorElement.style.display = 'none';
+            }
+        }
+
+        // Проверка обязательных полей
+        function validateMotivForm() {
+            const expertType = document.getElementById('expertType');
+            const customExpertType = document.getElementById('customExpertType');
+            const ageClass = document.getElementById('ageClass');
+            const customAgeClass = document.getElementById('customAgeClass');
+            const topic = document.getElementById('topic');
+            const knowledgeLevel = document.getElementById('knowledgeLevel');
+            const customKnowledgeLevel = document.getElementById('customKnowledgeLevel');
+            const studentInterests = document.getElementById('studentInterests');
+            const perceptionType = document.getElementById('perceptionType');
+            const lessonDuration = document.getElementById('lessonDuration');
+
+            let subjectValue = expertType.value;
+            if (subjectValue === 'Другое' && customExpertType.value.trim()) {
+                subjectValue = customExpertType.value.trim();
+            }
+            
+            let classValue = ageClass.value;
+            if (classValue === 'Другое' && customAgeClass.value.trim()) {
+                classValue = customAgeClass.value.trim();
+            }
+            
+            let levelValue = knowledgeLevel.value;
+            if (levelValue === 'Другое' && customKnowledgeLevel.value.trim()) {
+                levelValue = customKnowledgeLevel.value.trim();
+            }
+            
+            const topicValue = topic.value.trim();
+            const interestsValue = studentInterests.value.trim();
+            const perceptionValue = perceptionType.value;
+            const durationValue = lessonDuration.value;
+
+            if (!subjectValue || !classValue || !topicValue || !levelValue || !interestsValue || !perceptionValue || !durationValue) {
+                showError('Пожалуйста, заполните все обязательные поля: предмет, класс, тему урока, уровень знаний, интересы ученика, тип восприятия и длительность.');
+                return false;
+            }
+            
+            hideError();
+            return true;
+        }
+
+        // Инициализация при загрузке DOM
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== Начало инициализации страницы мотивационного конструктора ===');
+            
+            // Получаем ссылки на элементы формы
             const expertType = document.getElementById('expertType');
             const customExpertContainer = document.getElementById('customExpertContainer');
             const ageClass = document.getElementById('ageClass');
             const customAgeClassContainer = document.getElementById('customAgeClassContainer');
             const knowledgeLevel = document.getElementById('knowledgeLevel');
             const customKnowledgeLevelContainer = document.getElementById('customKnowledgeLevelContainer');
+            const copyButton = document.getElementById('copyButton');
+            const form = document.getElementById('motivPromptForm');
+
+            // Обработчики для основных полей
             if (expertType) {
                 expertType.addEventListener('change', function() {
                     toggleCustomField(expertType, customExpertContainer);
                     updateAvailableClasses();
+                    updateMotivPrompt();
                 });
             }
+
             if (ageClass) {
                 ageClass.addEventListener('change', function() {
                     toggleCustomField(ageClass, customAgeClassContainer);
                     const classAlert = document.getElementById('classAlert');
                     if (classAlert) classAlert.style.display = 'none';
+                    updateMotivPrompt();
                 });
             }
+
             if (knowledgeLevel) {
                 knowledgeLevel.addEventListener('change', function() {
-                    if (customKnowledgeLevelContainer)
-                        customKnowledgeLevelContainer.style.display = knowledgeLevel.value === 'Другое' ? 'block' : 'none';
+                    toggleCustomField(knowledgeLevel, customKnowledgeLevelContainer);
+                    updateMotivPrompt();
                 });
             }
-        });
 
-        // Проверка обязательных полей и показ ошибок
-        function validateMotivForm() {
-            const expertType = document.getElementById('expertType');
-            const customExpertType = document.getElementById('customExpertType');
-            const ageClass = document.getElementById('ageClass');
-            const customAgeClass = document.getElementById('customAgeClass');
-            const lessonTopic = document.getElementById('lessonTopic');
-            const knowledgeLevel = document.getElementById('knowledgeLevel');
-            const customKnowledgeLevel = document.getElementById('customKnowledgeLevel');
-            const errorBlock = document.getElementById('motivFormError');
-
-            let subjectValue = expertType.value;
-            if (subjectValue === 'Другое' && customExpertType.value.trim()) {
-                subjectValue = customExpertType.value.trim();
-            }
-            let classValue = ageClass.value;
-            if (classValue === 'Другое' && customAgeClass.value.trim()) {
-                classValue = customAgeClass.value.trim();
-            }
-            let levelValue = knowledgeLevel.value;
-            if (levelValue === 'Другое' && customKnowledgeLevel.value.trim()) {
-                levelValue = customKnowledgeLevel.value.trim();
-            }
-            const topicValue = lessonTopic.value.trim();
-
-            if (!subjectValue || !classValue || !topicValue || !levelValue) {
-                if (errorBlock) {
-                    errorBlock.style.display = 'block';
-                    errorBlock.textContent = 'Пожалуйста, заполните все обязательные поля: предмет, класс, тему и уровень знаний.';
+            // Добавляем обработчики для всех полей формы
+            ['topic', 'customExpertType', 'customAgeClass', 'customKnowledgeLevel', 
+             'studentInterests', 'perceptionType', 'lessonDuration', 'motivationLevel', 'lessonFormat'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener(element.tagName === 'SELECT' ? 'change' : 'input', updateMotivPrompt);
                 }
-                return false;
-            }
-            if (errorBlock) errorBlock.style.display = 'none';
-            return true;
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('motivPromptForm');
+            });
+
+            // Обработчик отправки формы
             if (form) {
                 form.addEventListener('submit', function(e) {
-                    if (!validateMotivForm()) {
-                        e.preventDefault();
-                        return false;
+                    e.preventDefault();
+                    if (validateMotivForm()) {
+                        updateMotivPrompt();
+                    }
+                    return false;
+                });
+            }
+
+            // Обработчик для кнопки копирования
+            if (copyButton) {
+                copyButton.addEventListener('click', async function() {
+                    const promptOutput = document.getElementById('generatedPrompt');
+                    if (promptOutput) {
+                        try {
+                            await navigator.clipboard.writeText(promptOutput.textContent);
+                            this.textContent = 'Скопировано!';
+                            setTimeout(() => {
+                                this.textContent = 'Скопировать промпт';
+                            }, 2000);
+                        } catch (error) {
+                            console.error('Ошибка при копировании:', error);
+                            showError('Не удалось скопировать текст. Попробуйте выделить и скопировать вручную.');
+                        }
                     }
                 });
             }
+
+            // Инициализируем начальное состояние
+            updateAvailableClasses();
+            updateMotivPrompt();
+            
+            console.log('Инициализация мотивационного конструктора завершена успешно');
         });
     </script>
 </body>

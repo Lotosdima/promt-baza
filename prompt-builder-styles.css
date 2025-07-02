@@ -1,0 +1,365 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #f8f9fc;
+    padding: 20px;
+    color: #333333;
+}
+
+/* Стили для шапки */
+.header {
+    background-color: #1e2c60;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: white;
+}
+.header p {
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+.school-logo {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ff9d3b;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Основной контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #1e2c60;
+    font-size: 24px;
+}
+h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #1e2c60;
+}
+
+/* Сетка для разделов */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.section {
+    background-color: #f8f9fc;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #e0e2ee;
+}
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Стили для форм */
+.form-group {
+    margin-bottom: 16px;
+}
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e2c60;
+}
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0e2ee;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: #365ddf;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(54, 93, 223, 0.2);
+}
+select[multiple] {
+    height: 120px;
+}
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.hint {
+    font-size: 12px;
+    color: #666666;
+    margin-top: 4px;
+}
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.checkbox-group input {
+    margin-right: 8px;
+    accent-color: #365ddf;
+}
+
+/* Стили для предпросмотра структуры */
+.structure-preview {
+    background-color: rgba(54, 93, 223, 0.1);
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 12px;
+    border: 1px solid rgba(54, 93, 223, 0.2);
+}
+.structure-preview p {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #1e2c60;
+}
+.structure-preview ol {
+    margin-left: 24px;
+}
+.structure-preview li {
+    margin-bottom: 4px;
+}
+
+/* Стили для результата */
+.result {
+    margin-top: 32px;
+    background-color: #f8f9fc;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #e0e2ee;
+}
+.prompt-output {
+    background-color: white;
+    border: 1px solid #e0e2ee;
+    border-radius: 4px;
+    padding: 16px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    min-height: 200px;
+    color: #333333;
+    line-height: 1.5;
+}
+button {
+    background-color: #eb5d13;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+button:hover {
+    background-color: #d65211;
+}
+
+/* Стили для подвала */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: #666666;
+    font-size: 14px;
+}
+
+/* Дополнительные компоненты */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.subject-group {
+    margin-top: 8px;
+}
+.subject-group-title {
+    font-weight: 500;
+    color: #1e2c60;
+    margin: 4px 0;
+    font-size: 13px;
+}
+optgroup {
+    font-style: normal;
+    font-weight: 500;
+    color: #1e2c60;
+}
+.alert {
+    background-color: #ffe9e3;
+    color: #c73e1d;
+    border: 1px solid #ff9d88;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 13px;
+    display: none;
+}
+.disabled-option {
+    color: #ccc;
+}
+
+/* Стили для ссылок */
+.logo-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* Стили для выпадающего списка тем */
+.topic-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0e2ee;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    background-color: white;
+}
+
+.topic-select:focus {
+    border-color: #365ddf;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(54, 93, 223, 0.2);
+}
+
+.topics-hint {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+/* Стили для загрузчика и ошибок */
+.loading-indicator {
+    color: #666;
+    font-style: italic;
+    margin: 5px 0;
+    display: none;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 12px;
+    margin: 5px 0;
+    display: none;
+}
+
+/* Стили для оффера */
+.offer-section {
+    background-color: #f0f4ff;
+    padding: 30px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.offer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.offer-heading {
+    color: #365ddf;
+    margin-bottom: 20px;
+}
+
+.offer-text {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.telegram-button {
+    display: inline-block;
+    background-color: #365ddf;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.telegram-button:hover {
+    background-color: #2848b8;
+}
+
+.course-link {
+    color: #365ddf;
+    text-decoration: none;
+}
+
+.course-link:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 16px;
+    }
+    
+    .header {
+        padding: 15px 0;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
+    
+    .section {
+        padding: 12px;
+    }
+    
+    .offer-text {
+        font-size: 16px;
+    }
+} 
